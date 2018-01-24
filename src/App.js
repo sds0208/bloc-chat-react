@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
+import MessageList from './components/MessageList';
 
 // Initialize Firebase
 var config = {
@@ -16,6 +17,16 @@ var config = {
 firebase.initializeApp(config);
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { activeRoom: '' };
+    this.activateRoom = this.activateRoom.bind(this);
+  }
+
+  activateRoom(room) {
+    this.setState({ activeRoom: room });
+  }  
+
   render() {
     return (
       <div className="App">
@@ -25,7 +36,10 @@ class App extends Component {
         </header>
         <p className="App-intro">
         </p>
+        <main>
+        </main>
         < RoomList firebase={firebase} />
+        < MessageList firebase={firebase} />
       </div>
     );
   }

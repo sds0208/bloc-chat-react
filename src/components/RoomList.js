@@ -32,6 +32,10 @@ class RoomList extends Component {
     this.setState({ newRoomName: '' })
   }
 
+  selectRoom(room) {
+    this.props.activateRoom(room);
+  }
+
   render() {
     return (
       <div className='roomlist'>
@@ -41,7 +45,7 @@ class RoomList extends Component {
         </form>
 
         {this.state.rooms.map(room =>
-          <div className="room" key={room.key}>
+          <div className="room" key={room.key} onClick={(e) => this.selectRoom(room, e)}>
             {room.name}
           </div>
         )}
