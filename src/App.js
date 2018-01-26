@@ -25,7 +25,7 @@ class App extends Component {
 
   activateRoom(room) {
     this.setState({ activeRoom: room });
-  }  
+  }
 
   render() {
     return (
@@ -38,7 +38,7 @@ class App extends Component {
         </p>
         <main>
         </main>
-        < RoomList firebase={firebase} />
+        < RoomList firebase={firebase} activateRoom={this.activateRoom}/>
         < MessageList firebase={firebase} />
       </div>
     );
