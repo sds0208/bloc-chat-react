@@ -3,3 +3,17 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.roomlist {
+  list-style: none;
+}
+
+.roomlist .active-room {
+  color: blue;
+  background: lightgrey;
+}
+
+.room:hover,
+.active-room:hover {
+  cursor: pointer;
+}
