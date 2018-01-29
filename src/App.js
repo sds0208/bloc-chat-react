@@ -8,12 +8,12 @@ import User from './components/User';
 
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyDD885qsbGeezbWVCPwK2KpalprJHraVjU",
-  authDomain: "bloc-chat-react-69cac.firebaseapp.com",
-  databaseURL: "https://bloc-chat-react-69cac.firebaseio.com",
-  projectId: "bloc-chat-react-69cac",
-  storageBucket: "bloc-chat-react-69cac.appspot.com",
-  messagingSenderId: "575546249156"
+  apiKey: "AIzaSyDsZ2T3FETnJZc8jQ0cVasiUCvnzHwlwOM",
+  authDomain: "bloc-chat-react-2.firebaseapp.com",
+  databaseURL: "https://bloc-chat-react-2.firebaseio.com",
+  projectId: "bloc-chat-react-2",
+  storageBucket: "",
+  messagingSenderId: "822247432066"
 };
 firebase.initializeApp(config);
 
@@ -47,7 +47,7 @@ class App extends Component {
         </main>
         < User firebase={firebase} setUser={this.setUser.bind(this)} user={this.state.user} />
         < RoomList firebase={firebase} activeRoom={this.state.activeRoom} activateRoom={this.activateRoom.bind(this)}/>
-        < MessageList firebase={firebase} activeRoom={this.state.activeRoom} />
+        < MessageList firebase={firebase} activeRoom={this.state.activeRoom} user={this.state.user} />
       </div>
     );
   }
