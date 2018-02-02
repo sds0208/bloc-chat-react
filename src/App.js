@@ -37,10 +37,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-            <div>bloc chat</div>
+            <div className="App-logo">bloc chat</div>
         </header>
-        <p className="App-intro">
-        </p>
         <main>
         </main>
         < User firebase={firebase} setUser={this.setUser.bind(this)} user={this.state.user} />

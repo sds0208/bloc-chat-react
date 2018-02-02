@@ -13,10 +13,12 @@ button {
   border-radius: 1rem;
   padding: .5rem;
   margin-top: .5rem;
+  box-shadow: 0 0 3px #303030;
 }
 
 button:hover {
   cursor: pointer;
+  box-shadow: 0 0 7px #303030;
 }
 
 input {
@@ -63,5 +65,20 @@ input {
   .user-name {
     display: inline;
     margin-right: .7rem;
+  }
+
+  .rooms,
+  .messages {
+    display: flex;
+    flex-direction: column;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 720px) {
+  .rooms,
+  .messages {
+    max-width: 720px;
   }
 }
