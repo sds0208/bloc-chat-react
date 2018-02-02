@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
@@ -38,8 +37,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+            <div>bloc chat</div>
         </header>
         <p className="App-intro">
         </p>
@@ -47,7 +45,7 @@ class App extends Component {
         </main>
         < User firebase={firebase} setUser={this.setUser.bind(this)} user={this.state.user} />
         < RoomList firebase={firebase} activeRoom={this.state.activeRoom} activateRoom={this.activateRoom.bind(this)}/>
-        < MessageList firebase={firebase} activeRoom={this.state.activeRoom} user={this.state.user} />
+        < MessageList firebase={firebase} activeRoom={this.state.activeRoom} user={this.state.user} activateRoom={this.activateRoom.bind(this)}/>
       </div>
     );
   }

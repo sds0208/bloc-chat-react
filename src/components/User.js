@@ -21,7 +21,7 @@ class User extends Component {
 
     return (
       <div className="user">
-        <h4 className="user-name">{ this.props.user ? 'Signed in as ' + this.props.user.displayName : 'Welcome, Guest!' }</h4>
+        <div className="user-name">{ this.props.user ? 'Signed in as ' + this.props.user.displayName : 'Welcome, Guest!' }</div>
         <button className="sign-in-button" onClick={ this.props.user ?  this.signOut.bind(this) : this.signIn.bind(this)}>{ this.props.user? 'Sign Out' : 'Google Sign In'}</button>
       </div>
     );

@@ -34,7 +34,8 @@ class RoomList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="rooms">
+        <h2>Rooms</h2>
         <form className="create-room" onSubmit={this.createRoom}>
           <input type="text" value={this.state.newRoomName} onChange={this.handleChange}/>
           <button type="submit">Create Room</button>

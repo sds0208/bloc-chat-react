@@ -29,39 +29,42 @@ class MessageList extends Component {
     }
   }
 
+
   createMessage(newMessageContent) {
-    if (!this.props.activeRoom || !this.props.user) {return};
+    const date = new Date();
+    if (!this.props.activeRoom || !this.props.user) {return;}
     this.messagesRef.push({
       content: this.state.newMessageContent,
       roomId: this.props.activeRoom.key,
-      sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
+      sentAt: [date.toLocaleDateString(), date.toLocaleTimeString()],
       username: this.props.user.displayName
     });
+
     this.setState({ newMessageContent: '' });
   }
 
   handleContentChange(event) {
     event.preventDefault();
-    this.setState({newMessageContent: event.target.value});
+    this.setState({newMessageContent: event.target.value });
   }
 
   filterAndDisplayMessages(activeRoom) {
-    this.setState({ currentRoomMessages: this.state.messages.filter(message => message.roomId === activeRoom.key) })
+    this.setState({ currentRoomMessages: this.state.messages.filter(message => message.roomId === activeRoom.key) });
   }
 
   render() {
     return (
       <div className="messages">
-        <form className="create-message" onSubmit={() => this.createMessage(this.state.newMessageContent)}>
-          <input type="text" value={this.state.newMessageContent} onChange={this.handleContentChange}/>
-          <button type="submit">Create Message</button>
-        </form>
+
         <h2>Messages</h2>
+        <form className="create-message" onSubmit={() => this.createMessage(this.state.newMessageContent)} >
+          <input type="text" value={this.state.newMessageContent} onChange={this.handleContentChange} />
+          <button type="submit">Send Message</button>
+        </form>
         <div className="messages-list">
           {this.state.currentRoomMessages.map(message =>
-            <div key={message.key}>
-              <h5>{message.username} at {message.sentAt}:</h5>
-              <h6>{message.content}</h6>
+            <div key={message.key} className="message">
+              <h5>{message.username} on {message.sentAt[0]} at {message.sentAt[1]} - {message.content}</h5>
             </div>
           )}
         </div>
