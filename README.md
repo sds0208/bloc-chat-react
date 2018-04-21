@@ -2,7 +2,7 @@
 
 #### Bloc Chat is a web chat application built using React and Firebase. Users can sign in using Firebase's Google Authentication, and can create rooms and messages that belong to a specific room.
 
-[Here is a link to the application](http://critiquemyperformance.herokuapp.com).
+[Here is a link to the application](https://sscblocchatrjs.herokuapp.com/).
 
 ![landing page](public/assets/bloc-chat-react-landing.PNG)
 
