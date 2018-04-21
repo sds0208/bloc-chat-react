@@ -32,14 +32,17 @@ class MessageList extends Component {
 
   createMessage(newMessageContent) {
     const date = new Date();
-    if (!this.props.activeRoom || !this.props.user) {return;}
-    this.messagesRef.push({
-      content: this.state.newMessageContent,
-      roomId: this.props.activeRoom.key,
-      sentAt: [date.toLocaleDateString(), date.toLocaleTimeString()],
-      username: this.props.user.displayName
-    });
-
+    if (!this.props.activeRoom || !this.props.user) {alert('Please select a room to send a message.')}
+    if (newMessageContent.length > 1) {
+      this.messagesRef.push({
+        content: this.state.newMessageContent,
+        roomId: this.props.activeRoom.key,
+        sentAt: [date.toLocaleDateString(), date.toLocaleTimeString()],
+        username: this.props.user.displayName
+      });
+    } else {
+      alert('Message must contain at least 1 character.');
+    }
     this.setState({ newMessageContent: '' });
   }
 

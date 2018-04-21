@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-/*.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}*/
-
 .App-header {
   background-color: #303030;
   padding: 20px;
@@ -14,11 +9,6 @@
   font-size: 3.5rem;
   font-weight: bold;
 }
-
-/*@keyframes App-logo-spin {
-  from { transform: rotate(-20deg); }
-  to { transform: rotate(20deg); }
-}*/
 
 @media (min-width: 720px) {
   .App-header {

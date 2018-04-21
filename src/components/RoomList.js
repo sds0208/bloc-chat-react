@@ -18,7 +18,6 @@ class RoomList extends Component {
       room.key = snapshot.key;
       this.setState({ rooms: this.state.rooms.concat( room ) });
     });
-
   }
 
   handleChange(event) {
@@ -28,7 +27,11 @@ class RoomList extends Component {
 
   createRoom(event) {
     event.preventDefault();
-    this.roomsRef.push({ name: this.state.newRoomName });
+    if (this.state.newRoomName.length > 3) {
+      this.roomsRef.push({ name: this.state.newRoomName });
+    } else {
+      alert('Room name must contain at least 3 characters.')
+    }    
     this.setState({ newRoomName: '' })
   }
 
@@ -40,7 +43,7 @@ class RoomList extends Component {
           <input type="text" value={this.state.newRoomName} onChange={this.handleChange}/>
           <button type="submit">Create Room</button>
         </form>
-
+        <h3>Click a room to view and send messages.</h3>
         {this.state.rooms.map(room =>
           <div className='roomlist'>
             <h4 key={room.key} className={this.props.activeRoom && this.props.activeRoom.key === room.key ? 'active-room' : 'room' } onClick={() => this.props.activateRoom(room)}>
