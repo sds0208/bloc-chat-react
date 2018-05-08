@@ -25,12 +25,10 @@ class App extends Component {
 
   activateRoom(room) {
     this.setState({ activeRoom: room });
-    console.log(room);
   }
 
   setUser(user) {
     this.setState({ user: user });
-    if (user !== null) {console.log(user.displayName)};
   }
 
   render() {

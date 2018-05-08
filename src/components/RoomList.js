@@ -31,7 +31,7 @@ class RoomList extends Component {
       this.roomsRef.push({ name: this.state.newRoomName });
     } else {
       alert('Room name must contain at least 3 characters.')
-    }    
+    }
     this.setState({ newRoomName: '' })
   }
 
@@ -45,8 +45,8 @@ class RoomList extends Component {
         </form>
         <h3>Click a room to view and send messages.</h3>
         {this.state.rooms.map(room =>
-          <div className='roomlist'>
-            <h4 key={room.key} className={this.props.activeRoom && this.props.activeRoom.key === room.key ? 'active-room' : 'room' } onClick={() => this.props.activateRoom(room)}>
+          <div className='roomlist' key={room.key}>
+            <h4 className={this.props.activeRoom && this.props.activeRoom.key === room.key ? 'active-room' : 'room' } onClick={() => this.props.activateRoom(room)}>
               {room.name}
             </h4>
           </div>
